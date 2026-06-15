@@ -1,0 +1,35 @@
+<%- include('partials/header', { title }) %>
+<%- include('partials/nav') %>
+
+<main class="card narrow auth-card">
+    <div class="section-head">
+        <div>
+            <h2>Login</h2>
+            <p>Use the default admin account to enter the student manager.</p>
+        </div>
+    </div>
+
+    <div class="alert info">
+        Default login: <strong>admin@student.com</strong> / <strong>admin123</strong>
+    </div>
+
+    <% if (error) { %>
+        <div class="alert error"><%= error %></div>
+    <% } %>
+
+    <form class="form-grid" action="/login" method="POST">
+        <label>
+            Email
+            <input type="email" name="email" placeholder="admin@student.com" required>
+        </label>
+        <label>
+            Password
+            <input type="password" name="password" placeholder="admin123" required>
+        </label>
+        <div class="form-actions">
+            <button class="button" type="submit">Login</button>
+        </div>
+    </form>
+</main>
+
+<%- include('partials/footer') %>
